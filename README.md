@@ -1,2 +1,3 @@
 # lintcode-me
-lint or leet, that's a question
+
+lintcode 4ever
