@@ -42,13 +42,23 @@
  */
 
 var reverse = function(x) {
-    // 判断正负
-    const sign =  x < 0 ? -1 : 1;
-    // 转换成可遍历的字符串进行操作
-    x = Math.abs(x).toString();
-    // -1 * ‘009’ => -9, 所以不用手动去除前面的 '0'
-    const res = sign * [...x].reverse().join('');
-    // 超出范围的数字进行处理
-    return res <= Math.pow(-2, 31) || res > Math.pow(2, 31) ? 0 : res;
+  // 判断正负
+  const sign =  x < 0 ? -1 : 1;
+  // 转换成可遍历的字符串进行操作
+  x = Math.abs(x).toString();
+  // -1 * ‘009’ => -9, 所以不用手动去除前面的 '0'
+  const res = sign * [...x].reverse().join('');
+  // 超出范围的数字进行处理
+  return res <= Math.pow(-2, 31) || res > Math.pow(2, 31) ? 0 : res;
 };
+
+var reverse = function(x) {
+  let tmp = x;
+  let res = 0;
+  while (tmp) {
+    res = res * 10 + tmp % 10;
+    tmp = parseInt(tmp / 10, 10);
+  }
+  return res <= Math.pow(-2, 31) || res > Math.pow(2, 31) ? 0 : res;
+}
 
