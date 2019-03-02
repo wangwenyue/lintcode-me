@@ -45,6 +45,8 @@
 
 // 操作字符串
 var isPalindrome = function(x) {
+  // 负数不是回文数
+  if (x < 0) return false;
   x = x.toString();
   return x === [...x].reverse().join('');
 };
