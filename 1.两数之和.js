@@ -29,14 +29,28 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-    let m = new Map();
-    for (let i = 0; i < nums.length; i++) {
-      if (m.has(target - nums[i])) {
-        return [m.get(target - nums[i]), i]
-      } else {
-        m.set(nums[i], i);
-      }
+
+// Map 方法
+// var twoSum = function(nums, target) {
+//     let m = new Map();
+//     for (let i = 0; i < nums.length; i++) {
+//       if (m.has(target - nums[i])) {
+//         return [m.get(target - nums[i]), i];
+//       } else {
+//         m.set(nums[i], i);
+//       }
+//     }
+// };
+
+// Object 方法
+var twoSum = function (nums, target) {
+  let o = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (o[target - nums[i]] !== undefined) {
+      return [o[target - nums[i]], i];
+    } else {
+      o[nums[i]] = i;
     }
+  }
 };
 
